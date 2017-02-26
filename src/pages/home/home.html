@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only (click)="refreshForex()">
+        <ion-icon name="refresh" ></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Forex Converter
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="openCurrencySettingsModal()">
+        <ion-icon name="cog" ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div *ngIf="noCurrencySet">
+
+    Please set a currency.
+
+  </div>
+
+  <div *ngIf="noCurrencySet === false">
+
+    <ion-grid class="currency-heading">
+      <ion-row>
+        <ion-col width-45 class="base">{{baseCurrency}}</ion-col>
+        <ion-col width-10 class="arrow"></ion-col>
+        <ion-col width-45 class="nonBase">{{nonBaseCurrency}}</ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <ion-grid class="currency-conversions">
+      <ion-row *ngFor="let cc of currencyConversions">
+        <ion-col width-45 class="base">{{cc.base}}</ion-col>
+        <ion-col width-10 class="arrow">--</ion-col>
+        <ion-col width-45 class="nonBase">{{cc.nonBase}}</ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+
+</ion-content>

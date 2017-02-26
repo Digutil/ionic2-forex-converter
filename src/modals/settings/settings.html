@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Settings</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="closeModal()">
+        <ion-icon name="close" ></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-item>
+    <ion-label>Base Currency</ion-label>
+    <ion-select [(ngModel)]="baseCurrency" (ngModelChange)="updateBaseCurrency($event)">
+      <ion-option *ngFor="let c of availableCurrencies" value="{{c}}">{{c}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Convert Currency</ion-label>
+    <ion-select [(ngModel)]="nonBaseCurrency" (ngModelChange)="updateNonBaseCurrency($event)">
+      <ion-option *ngFor="let c of availableCurrencies" value="{{c}}">{{c}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+
+</ion-content>
